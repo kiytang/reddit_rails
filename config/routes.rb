@@ -1,4 +1,5 @@
 RedditRails::Application.routes.draw do
+  #applied by Devise
   devise_for :users
   resources :pages
   root :to =>"pages#index"
