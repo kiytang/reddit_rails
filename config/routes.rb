@@ -1,8 +1,10 @@
 RedditRails::Application.routes.draw do
   #applied by Devise
   devise_for :users
-  resources :pages
+  resources  :pages
+  resources  :links
   root :to =>"pages#index"
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
