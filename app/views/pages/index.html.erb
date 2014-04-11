@@ -3,9 +3,11 @@
     <li>
     	<p><%= link_to link.title, link.url %></p>
     	<p><%= link_to "coments", link %></p>
+    	 <%= link_to "+", votes_path(:vote => {:link_id => link.id, :up => true}), :method => :post %>
     </li>
   <% end %>
 </ul>
 
 <%= link_to "Add a link", new_link_path %>
-<%= will_paginate @links %>
+
+<p><%= will_paginate @links %></p>
