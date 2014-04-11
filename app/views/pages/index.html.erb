@@ -1,7 +1,8 @@
 <ul>
   <% @links.each do |link| %>
     <li>
-    	<%= link_to link.title,link.url %>
+    	<p><%= link_to link.title, link.url %></p>
+    	<p><%= link_to "coments", link %></p>
     </li>
   <% end %>
 </ul>
