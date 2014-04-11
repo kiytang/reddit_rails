@@ -4,6 +4,7 @@ RedditRails::Application.routes.draw do
   resources  :pages
   resources  :links
   resources  :comments
+  resoureces :votes
   root :to =>"pages#index"
 
 
