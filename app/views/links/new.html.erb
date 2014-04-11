@@ -29,3 +29,7 @@
 <% end %>
 
 
+<h2>Comments:</h2>
+<% @link.comments.each do |comment| %>
+  <p><%= comment.message %></p>
+<% end %>
