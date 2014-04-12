@@ -2,25 +2,47 @@
 <html>
 <head>
   <title>RedditRails</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+  
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
 </head>
+
 <body>
-	<%# user is logged in, show log out link%>
-	<% if current_user.present? %>
-		<%= link_to 'Sign-Out', destroy_user_session_path, method: :delete %>
-	<%# user is not logged in, show sign-up and sign-in links%>
-	<% else %>
-		<%= link_to 'Sign In', new_user_session_path %> |
-		<%= link_to 'Register Now', new_user_registration_path %>
-	<% end %>
 
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+	
+	<div class="navbar navbar-fixed-top"
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="/" class="brand". Reddit on Rails</a>
+				<div class='nav-collapse'>
+					<ul class='nav'>
+						<%# user is logged in, show log out link%>
+						<% if current_user.present? %>
+							<%= link_to 'Sign-Out', destroy_user_session_path, method: :delete %>
+						<%# user is not logged in, show sign-up and sign-in links%>
+						<% else %>
+							<%= link_to 'Sign In', new_user_session_path %> |
+							<%= link_to 'Register Now', new_user_registration_path %>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+		</div>		
+	</div>
 
-
-<%= yield %>
-
+	<div class="container" id="getting started">
+		<div class="row">
+			<div class="span6 offset2">
+			<div class="page-header"></div>
+				<%= yield %>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
