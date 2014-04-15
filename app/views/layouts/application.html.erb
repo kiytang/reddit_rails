@@ -41,7 +41,15 @@
 			<div class="span6 offset2">
 			<div class="page-header"></div>
 
-			
+			#add Flash message
+			<% [:notice, :error, :alert].each do |level| %>
+  			<% unless flash[level].blank? %>
+    			<div data-alert="alert" class="alert alert-<%= level %> fade in">
+      			<a class="close" data-dismiss="alert" href="#">&times;</a>
+      			<%= content_tag :p, flash[level] %>
+			    </div>
+			  <% end %>
+			<% end %>
 				<%= yield %>
 			</div>
 		</div>
