@@ -1,0 +1,19 @@
+<ul>
+  <% @links.each do |link| %>
+    <li>
+      <p><%= link_to link.title, link.url %></p>
+      <p><%= link_to "coments", link %></p>
+      <% if current_user && current_user.votes.where(:link_id => link.id, :up => true).present? %>
+        *
+      <% else %>
+       <%= link_to "+", votes_path(:vote => {:link_id => link.id, :up => true}), :method => :post %>
+       <%= link_to "-", votes_path(:vote => {:link_id => link.id, :up => false}), :method => :post %>
+       <p>Votes: <%= link.votes.where(:up => true).count - link.votes.where(:up => false).count %></p>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Add a link", new_link_path %>
+
+<p><%= will_paginate @links %></p>

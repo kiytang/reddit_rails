@@ -58,7 +58,12 @@
 			<%= content_for :sidebar do %>
 				<%= link_to "Awesome Blog", 'http://schneems.com' %>
 			<% end %>
-				
+			
+			<%= form_tag(search_path, :method => "get", :style => "margin: 5px 0 0 0") do %>
+  		<%= text_field_tag(:q, nil, :placeholder => "search") %>
+  		<%= submit_tag("Search") %>
+			<% end %>	
+			
 				<%= yield %>
 				<%= yield :sidebar %>
 			</div>
